@@ -1,24 +1,46 @@
+<!DOCTYPE html>
 <html>
-<head>  
-<link rel="stylesheet" type="text/css" href="style.css">
+<head>
+<style>
+body{
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    background-position: center;
+    background-size: cover;
+}
+#myCanvas
+{
+    margin-top: 10px;
+	border-width:40px;
+	background-color: white; 
+	border-style:ridge;
+}
+
+h1,h4
+{
+	
+	color:red!important;
+	
+}
+</style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+	<title>ASCII value</title>
 </head>
-<body class="body_backgorund">
+<body>
 
-<div align="center">
-<h1>Paint</h1>
+<center>
+<h1>Keyboard keys</h1>
+	<!--- Create Canvas element --->
+	<div id="d1"></div>
+<h4>
+	<b class="text-danger">NOTE : </b> PRESS ANY KEYBOARD KEY 
+</h4>
 
-    <canvas id="myCanvas" width="800" height="600"></canvas>
-        <br><br >
-
-<!--Additional activity -->
-
-    </div>
-<script src="main.js"></script>
+</center>
+<script src="main.js">
+</script>
 </body>
 </html>

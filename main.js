@@ -1,62 +1,83 @@
-var last_position_of_x,last_position_of_y;
-    canvas = document.getElementById('myCanvas');
-    ctx = canvas.getContext("2d");
-    
-    color = "black";
-    width_of_line = 2;
+canvas =  document.getElementById('myCanvas');
+ctx= canvas.getcontext("2d");
 
-    var width=screen.width;
-    new_width=screen.width -70;
-new_height=screen.height -300;
-if (width<992){
-    document.getElementById("myCanvas").width=new_width;
-    document.getElementById("myCanvas").height=new_height;
-    document.body.style.overflow="hidden";
+window.addEventListener("keydown",my_keydown);
 
-    
+
+img_width = 300;
+img_height = 100;
+
+var img_image;
+
+img_x = 100;
+img_y = 100;
+
+function add() {
+	img_imgTag = new Image(); //defining a variable with a new image
+	img_imgTag.onload = uploadimg; // setting a function, onloading this variable
+	img_imgTag.src = img_image;   // load image
 }
 
-    canvas.addEventListener("touchstart",my_touchstart);
+function uploadimg() {
 
-    
-    function my_touchstart(e)
-    {
-        console.log("my_touchstart");
-        //Addictonal Activity start
-        color = document.getElementById("color").value;
-        width_of_line = document.getElementById("width_of_line").value;
-        //Addictonal Activity ends
+	ctx.drawImage(img_imgTag, img_x, img_y, img_width, img_height);
+}
 
-    last_position_of_x=e.touches[0].clientX-canvas.offsetLeft;
-    last_position_of_y=e.touches[0].clientY-canvas.offsetTop;
-    }
+functon my_keydown(e)
+{
+	keyPressed = e.keyCode;
+	console.log(keyPressed);
+	if((keyPressed >=97 && keyPressed<=122)||  ( keyPressed >=65 && keyPressed<=90))
+	{
+		aplhabetkey();
+		document.getElementById("d1").innerHTML="You Pressed Alphabet key";
+		console.lo("Alphabet key");
 
-    canvas.addEventListener("touchmove", my_touchmove);
-    function my_touchmove(e){
-        console.log("my_touchmove");
-    current_position_of_touch_x=e.touches[0].clientX-canvas.offsetLeft;
-    current_position_of_touch_Y=e.touches[0].clientY-canvas.offsetTop;
-    
-    
+	}
+	function alphabetket()
+	{
+		img_image="Alpkey.png";
+		add();
 
-    
+	}
 
-    
-        ctx.beginPath();
-        ctx.strokeStyle = color;
-        ctx.lineWidth = width_of_line;
+}
 
-        console.log("Last position of x and y coordinates = ");
-        console.log("x = " + last_position_of_x + "y = " + last_position_of_y);
-        ctx.moveTo(last_position_of_x, last_position_of_y);
 
-        console.log("Current position of x and y coordinates = ");
-        console.log("x  = " + current_position_of_touch_x + "y = " + current_position_of_touch_y);
-        ctx.lineTo(current_position_of_touch_x, current_position_of_touch_y);
-        ctx.stroke();
-        
 
-        last_position_of_x = current_position_of_touch_x; 
-        last_position_of_y = current_position_of_touch_y;
-    }
 
+function my_keydown(e)
+{
+	keyPressed = e.keyCode;
+	console.log(keyPressed);
+	
+		if((keyPressed >=97 && keyPressed<=122)|| (keyPressed >=65 && keyPressed<=90))
+		//write a code to check the type of key pressed
+	else{
+		otherkey();
+		document.getElementById("d1").innerHTML="You pressed symbol or other key";
+	}
+}
+
+function aplhabetkey()
+{
+	//upload respective image with the message. 
+
+}
+function numberkey()
+{
+	
+}
+function arrowkey()
+{
+}
+function specialkey()
+{
+	
+}
+function otherkey()
+{
+	img_image="otherkey.png";
+	add();
+}
+	
